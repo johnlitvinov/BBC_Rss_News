@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "756205956495",
+    "firebase_url": "https://latest-news-5ce93-default-rtdb.firebaseio.com",
+    "project_id": "latest-news-5ce93",
+    "storage_bucket": "latest-news-5ce93.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:756205956495:android:0cf12b8fe320928f356ffa",
+        "android_client_info": {
+          "package_name": "com.example.rssnews"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "756205956495-23fm30e1gqn83fr8hd63n6gaks696fho.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-V5LcT4oHjEtazz48GP0WMmfn2t4XoyQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "756205956495-23fm30e1gqn83fr8hd63n6gaks696fho.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
