@@ -1,4 +1,6 @@
 package com.example.rssnews;
+import android.content.ClipData;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,7 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 public class Adapter extends FirebaseRecyclerAdapter<news, Adapter.newsViewholder> {
 
     private OnClickListener monClickListener;
+    int selected_position = 0;
     public Adapter(@NonNull FirebaseRecyclerOptions<news> options, OnClickListener onClickListener) {
         super(options);
         this.monClickListener = onClickListener;
@@ -22,6 +25,11 @@ public class Adapter extends FirebaseRecyclerAdapter<news, Adapter.newsViewholde
     @Override
     protected void
     onBindViewHolder(@NonNull newsViewholder holder, int position, @NonNull news model) {
+       // ClipData.Item item = items.get(position);
+
+        // Here I am just highlighting the background
+        holder.itemView.setBackgroundColor(selected_position == position ? Color.YELLOW : Color.WHITE);
+
         holder.title.setText(model.getTitle());
         holder.description.setText(model.getDescription());
         holder.link.setText(model.getLink());
@@ -45,6 +53,7 @@ public class Adapter extends FirebaseRecyclerAdapter<news, Adapter.newsViewholde
         OnClickListener onClickListener;
 
         public newsViewholder(@NonNull View itemView, OnClickListener onClickListener) {
+
             super(itemView);
             title = itemView.findViewById(R.id.title);
             description = itemView.findViewById(R.id.description);
@@ -58,7 +67,14 @@ public class Adapter extends FirebaseRecyclerAdapter<news, Adapter.newsViewholde
 
         @Override
         public void onClick(View view) {
-        onClickListener.onClick(link.getText().toString());
+
+            if (getAdapterPosition() == RecyclerView.NO_POSITION) return;
+            // Updating old as well as new positions
+            notifyItemChanged(selected_position);
+            selected_position = getAdapterPosition();
+            notifyItemChanged(selected_position);
+
+            onClickListener.onClick(link.getText().toString());
         }
     }
 
